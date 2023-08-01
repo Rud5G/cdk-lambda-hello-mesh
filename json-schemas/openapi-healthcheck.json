@@ -1,0 +1,196 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI-Healthcheck - OpenAPI 3.1",
+    "description": "This is a sample healthcheck based on the OpenAPI 3.1 specification.  You can find out more about\nSwagger at [https://swagger.io](https://swagger.io). \nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://7iy892tbyb.execute-api.eu-central-1.amazonaws.com/healthcheck"
+    }
+  ],
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "summary": "Get healthcheck",
+        "description": "healthcheck",
+        "operationId": "healthcheck",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "message",
+                    "input"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "input": {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "type": "string"
+                        },
+                        "routeKey": {
+                          "type": "string"
+                        },
+                        "rawPath": {
+                          "type": "string"
+                        },
+                        "rawQueryString": {
+                          "type": "string"
+                        },
+                        "cookies": {
+                          "type": "array"
+                        },
+                        "headers": {
+                          "type": "object"
+                        },
+                        "requestContext": {
+                          "type": "object"
+                        },
+                        "isBase64Encoded": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Healthcheck": {
+        "required": [
+          "message",
+          "input"
+        ],
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "input": {
+            "type": "object",
+            "properties": {
+              "version": {
+                "type": "string"
+              },
+              "routeKey": {
+                "type": "string"
+              },
+              "rawPath": {
+                "type": "string"
+              },
+              "rawQueryString": {
+                "type": "string"
+              },
+              "cookies": {
+                "type": "array"
+              },
+              "headers": {
+                "type": "object"
+              },
+              "requestContext": {
+                "type": "object"
+              },
+              "isBase64Encoded": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "##default"
+        }
+      }
+    },
+    "requestBodies": {
+      "Pet": {
+        "description": "Pet object that needs to be added to the store",
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "message",
+                "input"
+              ],
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "input": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string"
+                    },
+                    "routeKey": {
+                      "type": "string"
+                    },
+                    "rawPath": {
+                      "type": "string"
+                    },
+                    "rawQueryString": {
+                      "type": "string"
+                    },
+                    "cookies": {
+                      "type": "array"
+                    },
+                    "headers": {
+                      "type": "object"
+                    },
+                    "requestContext": {
+                      "type": "object"
+                    },
+                    "isBase64Encoded": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
