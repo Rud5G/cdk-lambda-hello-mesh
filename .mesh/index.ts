@@ -271,7 +271,7 @@ const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
   validate: false
 });
 
-export const rawServeConfig: YamlConfig.Config['serve'] = undefined as any
+export const rawServeConfig: YamlConfig.Config['serve'] = {"endpoint":"/"} as any
 export async function getMeshOptions(): Promise<GetMeshOptions> {
 const pubsub = new PubSub();
 const sourcesStore = rootStore.child('sources');
@@ -335,7 +335,7 @@ export function createBuiltMeshHTTPHandler<TServerContext = {}>(): MeshHTTPHandl
   return createMeshHTTPHandler<TServerContext>({
     baseDir,
     getBuiltMesh: getBuiltMesh,
-    rawServeConfig: undefined,
+    rawServeConfig: {"endpoint":"/"},
   })
 }
 

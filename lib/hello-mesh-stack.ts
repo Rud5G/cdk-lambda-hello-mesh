@@ -8,11 +8,6 @@ export class HelloMeshStack extends cdk.Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'HelloQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
     new HelloMesh(this, 'hello-mesh');
   }
 }

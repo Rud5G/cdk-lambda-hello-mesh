@@ -1,3 +1,5 @@
+serve:
+  endpoint: /
 sources:
   - name: Healthcheck
     handler:
